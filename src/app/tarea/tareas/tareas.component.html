@@ -22,9 +22,14 @@
     <mat-card-content>
       <p>{{ tarea.descripcion | cutString : 30 }}</p>
       <br />
-      <button mat-raised-button color="primary" (click)="openDialog(tarea)">
-        Ver detalle
-      </button>
+      <div class="actions-tarea">
+        <button mat-raised-button color="primary" (click)="openDialog(tarea)">
+          Ver detalle
+        </button>
+        <button mat-raised-button color="warn" (click)="eliminar(tarea)">
+          Eliminar
+        </button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

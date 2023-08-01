@@ -16,12 +16,15 @@ export class TareasComponent implements OnInit {
 
   ngOnInit(): void {
     this.tareas = this.tareaService.tareas;
-    console.log(this.tareas);
   }
 
   openDialog(tarea: Tarea) {
     this.dialog.open(TareaDialogComponent, {
       data: { tarea },
     });
+  }
+
+  eliminar(tarea: Tarea) {
+    this.tareaService.eliminarTarea(tarea);
   }
 }
