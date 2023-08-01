@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { Responsable } from 'src/model/responsable.model';
 import { responsables } from 'src/data/responsable.data';
 import { ResponsableService } from 'src/app/responsable/responsable.service';
+import { generateCustomId } from 'src/app/utils/generateId.util';
 
 @Component({
   selector: 'app-crear-tarea',
@@ -46,6 +47,7 @@ export class CrearTareaComponent implements OnInit {
       this.tareaService.crearTarea({
         ...this.formTarea?.value,
         fechaYHora: fechaYHora,
+        id: generateCustomId(),
       });
       this.formTarea.reset();
       this.router.navigate(['']);

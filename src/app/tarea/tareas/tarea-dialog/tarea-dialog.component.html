@@ -1,3 +1,19 @@
-<div>
+<div mat-dialog-title>
+  <h2>{{ data.tarea.titulo }}</h2>
+</div>
+<div mat-dialog-content>
+  <p>
+    Fecha y hora: {{ data.tarea.fechaYHora | toLocaleDate }} |
+    {{ data.tarea.fechaYHora | toLocaleTime }}
+  </p>
+  <br />
+  <h4>Descripción</h4>
   <p>{{ data.tarea.descripcion }}</p>
+  <br />
+  <h4>Estado:</h4>
+  <p>{{ data.tarea.estado ? "Completado" : "Pendiente" }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Editar</button>
+  <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
 </div>

@@ -4,7 +4,7 @@ import { Tarea } from 'src/model/tarea.model';
 export const tareas: Tarea[] = [
   {
     id: generateCustomId(),
-    titulo: 'Tarea 1',
+    titulo: 'Cocinar el pollo',
     responsable: 'Juan',
     descripcion:
       'Hacer informe Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quo eum. Explicabo suscipit reprehenderit doloribus eaque, veniam fuga consequatur ullam ex, minima odit atque! Ex a ea animi nobis qui.',
@@ -13,7 +13,7 @@ export const tareas: Tarea[] = [
   },
   {
     id: generateCustomId(),
-    titulo: 'Tarea 2',
+    titulo: 'Comprar fideos y aceite',
     responsable: 'María',
     descripcion:
       'Enviar correo Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quo eum. Explicabo suscipit reprehenderit doloribus eaque, veniam fuga consequatur ullam ex, minima odit atque! Ex a ea animi nobis qui.',
@@ -22,7 +22,7 @@ export const tareas: Tarea[] = [
   },
   {
     id: generateCustomId(),
-    titulo: 'Tarea 3',
+    titulo: 'Buscar la ropa en la lavanderia',
     responsable: 'Pedro',
     descripcion:
       'Preparar reunión Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quo eum. Explicabo suscipit reprehenderit doloribus eaque, veniam fuga consequatur ullam ex, minima odit atque! Ex a ea animi nobis qui.',
@@ -31,7 +31,7 @@ export const tareas: Tarea[] = [
   },
   {
     id: generateCustomId(),
-    titulo: 'Tarea 4',
+    titulo: 'Enviar correos',
     responsable: 'Ana',
     descripcion:
       'Completar formulario Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quo eum. Explicabo suscipit reprehenderit doloribus eaque, veniam fuga consequatur ullam ex, minima odit atque! Ex a ea animi nobis qui.',

@@ -9,4 +9,8 @@ export class ResponsableService {
   responsables: Responsable[] = responsables;
 
   constructor() {}
+
+  crearResponsable(responsable: Responsable) {
+    this.responsables.push(responsable);
+  }
 }

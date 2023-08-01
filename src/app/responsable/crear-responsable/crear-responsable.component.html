@@ -1,1 +1,49 @@
 <h3 class="page-title">CREAR RESPONSABLE</h3>
+
+<form
+  class="form"
+  autocomplete="off"
+  [formGroup]="formResponsable"
+  (ngSubmit)="guardarResponsable()"
+>
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" />
+    <mat-error *ngIf="formResponsable.get('nombre')?.touched">
+      El nombre es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <mat-form-field>
+    <mat-label>Apellido</mat-label>
+    <input matInput formControlName="apellido" />
+    <mat-error *ngIf="formResponsable.get('apellido')?.touched">
+      El nombre es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <mat-form-field>
+    <mat-label>Sector</mat-label>
+    <mat-select formControlName="sector">
+      <mat-option *ngFor="let sec of sectores" value="{{ sec.id }}">{{
+        sec.nombre
+      }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="formResponsable.get('sector')?.touched">
+      El sector es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <button mat-flat-button color="primary" type="submit">
+    Guardar Responsable
+  </button>
+</form>

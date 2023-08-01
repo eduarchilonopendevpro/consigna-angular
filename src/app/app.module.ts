@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TareaModule } from './tarea/tarea.module';
 import { CrearTareaModule } from './tarea/crear-tarea/crear-tarea.module';
+import { ResponsableModule } from './responsable/responsable.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, DashboardComponent],
@@ -29,6 +30,7 @@ import { CrearTareaModule } from './tarea/crear-tarea/crear-tarea.module';
     MatListModule,
     TareaModule,
     CrearTareaModule,
+    ResponsableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

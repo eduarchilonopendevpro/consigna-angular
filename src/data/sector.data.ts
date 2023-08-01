@@ -1,6 +1,6 @@
 import { Sector } from 'src/model/sector.model';
 
-export const sector: Sector[] = [
+export const sectores: Sector[] = [
   {
     id: 1,
     nombre: 'Recursos Humanos',
@@ -15,6 +15,6 @@ export const sector: Sector[] = [
   },
   {
     id: 4,
-    nombre: 'OPeraciones',
+    nombre: 'Operaciones',
   },
 ];

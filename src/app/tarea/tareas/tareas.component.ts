@@ -24,12 +24,4 @@ export class TareasComponent implements OnInit {
       data: { tarea },
     });
   }
-
-  cutDescription(description: string): string {
-    return description.substring(0, 20);
-  }
-
-  formatDate(date: Date) {
-    return date.toLocaleString().slice(0, -3);
-  }
 }
