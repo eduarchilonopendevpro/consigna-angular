@@ -1,0 +1,19 @@
+<h3 class="page-title">LISTA DE TAREAS</h3>
+<div class="tarea-container">
+  <mat-card class="tarea-card" *ngFor="let tarea of tareas">
+    <mat-card-header>
+      <mat-card-title>{{ tarea.titulo }}</mat-card-title>
+      <mat-card-subtitle>{{
+        tarea.fechaYHora.toLocaleDateString()
+      }}</mat-card-subtitle>
+      <mat-card-subtitle>{{
+        tarea.fechaYHora.toLocaleTimeString().slice(0, -3)
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ cutDescription(tarea.descripcion) }}...</p>
+      <p>Estado: {{ tarea.estado }}</p>
+      <button mat-button (click)="openDialog(tarea)">Ver detalle</button>
+    </mat-card-content>
+  </mat-card>
+</div>

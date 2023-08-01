@@ -1,0 +1,72 @@
+<h3 class="page-title">CREAR TAREA</h3>
+
+<form
+  class="form"
+  autocomplete="off"
+  [formGroup]="formTarea"
+  (ngSubmit)="guardarTarea()"
+>
+  <mat-form-field>
+    <mat-label>Titulo</mat-label>
+    <input matInput formControlName="titulo" />
+    <mat-error *ngIf="formTarea.get('titulo')?.touched">
+      El título es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <mat-form-field>
+    <mat-label>Fecha y hora</mat-label>
+    <mat-datetimepicker-toggle
+      [for]="datetimePicker"
+      matSuffix
+    ></mat-datetimepicker-toggle>
+    <mat-datetimepicker
+      #datetimePicker
+      type="datetime"
+      mode="auto"
+    ></mat-datetimepicker>
+    <input
+      matInput
+      formControlName="fechaYHora"
+      [matDatetimepicker]="datetimePicker"
+      autocomplete="false"
+    />
+    <mat-error *ngIf="formTarea.get('fechaYHora')?.touched">
+      La fecha y hora es requerida.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <mat-form-field>
+    <mat-label>Usuario responsable</mat-label>
+    <mat-select formControlName="responsable">
+      <mat-option *ngFor="let res of responsables" value="{{ res.id }}"
+        >{{ res.nombre }} {{ res.apellido }}</mat-option
+      >
+    </mat-select>
+    <mat-error *ngIf="formTarea.get('responsable')?.touched">
+      El responsable es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <mat-form-field>
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput formControlName="descripcion"></textarea>
+    <!-- <mat-error *ngIf="formTarea.get('descripcion')?.touched">
+      La descripcion es requerida.
+    </mat-error> -->
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <button mat-flat-button color="primary" type="submit">Guardar tarea</button>
+</form>

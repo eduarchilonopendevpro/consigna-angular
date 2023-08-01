@@ -15,13 +15,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { TareaModule } from './tarea/tarea.module';
+import { CrearTareaModule } from './tarea/crear-tarea/crear-tarea.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    DashboardComponent
-  ],
+  declarations: [AppComponent, NavigationComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,9 +34,13 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    TareaModule,
+    CrearTareaModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
