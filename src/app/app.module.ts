@@ -12,13 +12,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
 import { TareaModule } from './tarea/tarea.module';
 import { CrearTareaModule } from './tarea/crear-tarea/crear-tarea.module';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, DashboardComponent],
@@ -32,13 +27,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
     TareaModule,
     CrearTareaModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
