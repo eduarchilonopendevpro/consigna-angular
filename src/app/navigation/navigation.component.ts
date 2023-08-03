@@ -2,8 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { MenuItem } from 'src/model/menu.model';
-import { menuItems } from 'src/data/menu.data';
+import { Menu, MenuItem } from 'src/model/menu.model';
+import { menuItems, menuList } from 'src/data/menu.data';
 
 @Component({
   selector: 'app-navigation',
@@ -13,7 +13,7 @@ import { menuItems } from 'src/data/menu.data';
 export class NavigationComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
 
-  menu: MenuItem[] = menuItems;
+  menu: Menu[] = menuList;
 
   ngOnInit(): void {}
 

@@ -26,6 +26,8 @@ export class CrearTareaComponent implements OnInit {
     responsable: new FormControl('', Validators.required),
   });
 
+  // formTarea!: FormGroup;
+
   responsables: Responsable[] = [];
 
   constructor(
@@ -34,6 +36,12 @@ export class CrearTareaComponent implements OnInit {
     private responsableService: ResponsableService,
     private router: Router
   ) {}
+
+  formInit() {
+    this.formTarea = this.fb.group({
+      titulo: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     this.responsables = this.responsableService.responsables;

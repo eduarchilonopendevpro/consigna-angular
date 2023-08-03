@@ -9,8 +9,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TareaDialogComponent } from './tareas/tarea-dialog/tarea-dialog.component';
-import { ToLocaleDatePipe } from '../pipes/to-locale-date/to-locale-date.pipe';
-import { ToLocaleTimePipe } from '../pipes/to-locale-time/to-locale-time.pipe';
 import { CutStringPipe } from '../pipes/cut-string/cut-string.pipe';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,13 +22,7 @@ import { MatMomentDatetimeModule } from '@mat-datetimepicker/moment';
 import { MatDatetimepickerModule } from '@mat-datetimepicker/core';
 
 @NgModule({
-  declarations: [
-    TareasComponent,
-    TareaDialogComponent,
-    ToLocaleDatePipe,
-    ToLocaleTimePipe,
-    CutStringPipe,
-  ],
+  declarations: [TareasComponent, TareaDialogComponent, CutStringPipe],
   imports: [
     CommonModule,
     MatListModule,

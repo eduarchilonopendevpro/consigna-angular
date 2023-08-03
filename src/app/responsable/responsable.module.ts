@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResponsablesComponent } from './responsables/responsables.component';
 import { CrearResponsableComponent } from './crear-responsable/crear-responsable.component';
@@ -13,9 +13,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { ResponsableService } from './responsable.service';
+import { SectorNamePipe } from '../pipes/sector-name/sector-name.pipe';
+import { ListaResponsablesComponent } from './lista-responsables/lista-responsables.component';
+import { AccionResponsableComponent } from './accion-responsable/accion-responsable.component';
 
 @NgModule({
-  declarations: [ResponsablesComponent, CrearResponsableComponent],
+  declarations: [
+    ResponsablesComponent,
+    CrearResponsableComponent,
+    SectorNamePipe,
+    ListaResponsablesComponent,
+    AccionResponsableComponent,
+  ],
   imports: [
     CommonModule,
     MatTableModule,
@@ -30,5 +39,6 @@ import { ResponsableService } from './responsable.service';
     MatIconModule,
   ],
   providers: [ResponsableService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ResponsableModule {}

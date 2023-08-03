@@ -6,6 +6,7 @@ import { Tarea } from 'src/model/tarea.model';
   providedIn: 'root',
 })
 export class TareaService {
+  //cambiar a getter
   tareas: Tarea[] = tareas;
 
   constructor() {}

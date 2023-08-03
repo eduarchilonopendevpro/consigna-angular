@@ -1,0 +1,45 @@
+<h3 class="page-title">{{ tituloDePagina }}</h3>
+<div class="container">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="accion">
+      <mat-header-cell *matHeaderCellDef>Accion</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button
+          mat-mini-fab
+          color="primary"
+          (click)="editarResponsable(element)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        &#160; &#160;
+        <button
+          mat-mini-fab
+          color="warn"
+          (click)="eliminarResponsable(element)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.nombre }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+      <mat-header-cell *matHeaderCellDef>Apellido</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.apellido }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sector">
+      <mat-header-cell *matHeaderCellDef>Sector</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{
+        element.sector | sectorName
+      }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

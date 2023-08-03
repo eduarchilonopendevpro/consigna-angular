@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TareaModule } from './tarea/tarea.module';
 import { CrearTareaModule } from './tarea/crear-tarea/crear-tarea.module';
 import { ResponsableModule } from './responsable/responsable.module';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ListaResponsablesComponent } from './responsable/lista-responsables/lista-responsables.component';
+import { ResponsablesComponent } from './responsable/responsables/responsables.component';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, DashboardComponent],
@@ -31,8 +34,10 @@ import { ResponsableModule } from './responsable/responsable.module';
     TareaModule,
     CrearTareaModule,
     ResponsableModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

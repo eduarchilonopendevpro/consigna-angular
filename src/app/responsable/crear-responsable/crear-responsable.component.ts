@@ -27,6 +27,7 @@ export class CrearResponsableComponent {
     } else {
       this.responsableService.crearResponsable({
         ...this.formResponsable.value,
+        sector: Number(this.formResponsable.value?.sector),
         id: generateCustomId(),
       });
       this.formResponsable.reset();

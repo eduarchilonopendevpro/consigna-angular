@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Tarea } from 'src/model/tarea.model';
 import { TareaService } from '../../tarea.service';
@@ -13,15 +13,18 @@ import * as moment from 'moment';
   templateUrl: './tarea-dialog.component.html',
   styleUrls: ['./tarea-dialog.component.sass'],
 })
-export class TareaDialogComponent {
+export class TareaDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { tarea: Tarea },
     private tareaService: TareaService,
     public dialog: MatDialog
   ) {
-    console.log(
-      this.estados.find((est) => est.value === this.data.tarea.estado)
-    );
+    // console.log(
+    //   this.estados.find((est) => est.value === this.data.tarea.estado)
+    // );
+  }
+  ngOnInit(): void {
+    console.log(this.data);
   }
 
   estados: Estado[] = [
@@ -43,14 +46,9 @@ export class TareaDialogComponent {
     this.showFormEdit = !this.showFormEdit;
   }
 
-  formEdit: FormGroup = new FormGroup({
-    id: new FormControl(this.data.tarea.id),
-    titulo: new FormControl(this.data.tarea.titulo),
-    fechaYHora: new FormControl(new Date(this.data.tarea.fechaYHora)),
-    descripcion: new FormControl(this.data.tarea.descripcion),
-    responsable: new FormControl(this.data.tarea.responsable),
-    estado: new FormControl(this.data.tarea.estado),
-  });
+  formEdit!: FormGroup;
+
+  
 
   editar() {
     let fechaYHora: Date = new Date();

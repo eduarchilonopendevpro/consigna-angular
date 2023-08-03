@@ -4,8 +4,8 @@
   </div>
   <div mat-dialog-content>
     <p>
-      Fecha y hora: {{ data.tarea.fechaYHora | toLocaleDate }} |
-      {{ data.tarea.fechaYHora | toLocaleTime }}
+      Fecha y hora: {{ data.tarea.fechaYHora | date : "yyyy/MM/dd" }} |
+      {{ data.tarea.fechaYHora | date : "hh:mm" }}
     </p>
     <br />
     <h4>Descripción</h4>

@@ -10,7 +10,15 @@ export class ResponsableService {
 
   constructor() {}
 
-  crearResponsable(responsable: Responsable) {
+  get listaResponsables(): Responsable[] {
+    return this.responsables;
+  }
+
+  crearResponsable(responsable: Responsable): void {
     this.responsables.push(responsable);
+  }
+
+  eliminar(res: Responsable): void {
+    this.responsables = this.listaResponsables.filter((r) => r.id !== res.id);
   }
 }

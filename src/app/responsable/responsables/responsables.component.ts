@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { Responsable } from 'src/model/responsable.model';
 import { ResponsableService } from '../responsable.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,18 +19,25 @@ import { DataSource } from '@angular/cdk/table';
   styleUrls: ['./responsables.component.sass'],
 })
 export class ResponsablesComponent implements OnInit {
-  responsables!: Responsable[];
-  dataSource: any = [];
-  displayedColumns: string[] = ['nombre', 'apellido', 'sector', 'id'];
+  titulo: string = 'LISTA DE RESPONSABLES';
 
   constructor(private responsableSerevice: ResponsableService) {}
 
-  ngOnInit(): void {
-    this.loadData();
+  responsables!: Responsable[];
+
+  get listaResponsablesPadre(): Responsable[] {
+    return this.responsableSerevice.listaResponsables;
   }
 
-  loadData() {
-    this.responsables = this.responsableSerevice.responsables;
-    this.dataSource = new MatTableDataSource<Responsable>(this.responsables);
+  ngOnInit(): void {
+    this.responsables = this.responsableSerevice.listaResponsables;
+  }
+
+  editarResponsable(res: Responsable): void {
+    console.log('Editado', res);
+  }
+
+  eliminarResponsable(res: Responsable): void {
+    this.responsableSerevice.eliminar(res);
   }
 }
