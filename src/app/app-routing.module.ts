@@ -4,15 +4,22 @@ import { CrearTareaComponent } from './tarea/crear-tarea/crear-tarea.component';
 import { TareasComponent } from './tarea/tareas/tareas.component';
 import { ResponsablesComponent } from './responsable/responsables/responsables.component';
 import { CrearResponsableComponent } from './responsable/crear-responsable/crear-responsable.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login.guard';
 
 const routes: Routes = [
   {
     path: '',
+    component: LoginComponent,
+  },
+  {
+    path: 'tareas',
     component: TareasComponent,
   },
   {
     path: 'crear-tarea',
     component: CrearTareaComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: 'responsables',
@@ -21,6 +28,16 @@ const routes: Routes = [
   {
     path: 'crear-responsable',
     component: CrearResponsableComponent,
+    // canActivate: [LoginGuard],
+  },
+  {
+    path: 'editar-responsable/:id',
+    component: CrearResponsableComponent,
+    // canActivate: [LoginGuard],
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
 

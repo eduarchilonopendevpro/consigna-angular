@@ -1,9 +1,18 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  inject,
+} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Menu, MenuItem } from 'src/model/menu.model';
 import { menuItems, menuList } from 'src/data/menu.data';
+import { LoginService } from '../login/login.service';
+import { Usuario } from 'src/model/usuario.model';
+import { LoginGuard } from '../login/login.guard';
 
 @Component({
   selector: 'app-navigation',
@@ -14,8 +23,15 @@ export class NavigationComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
 
   menu: Menu[] = menuList;
+  usuario!: Usuario;
 
-  ngOnInit(): void {}
+  constructor(private loginService: LoginService, public lguard: LoginGuard) {}
+
+  ngOnInit(): void {
+    this.loginService._usuarioEncontrado.subscribe((data) => {
+      this.usuario = data;
+    });
+  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)

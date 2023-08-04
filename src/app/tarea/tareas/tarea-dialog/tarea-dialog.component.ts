@@ -7,6 +7,7 @@ import { Responsable } from 'src/model/responsable.model';
 import { responsables } from 'src/data/responsable.data';
 import { Estado } from 'src/model/estado.model';
 import * as moment from 'moment';
+import { LoginService } from 'src/app/login/login.service';
 
 @Component({
   selector: 'app-tarea-dialog',
@@ -17,14 +18,21 @@ export class TareaDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { tarea: Tarea },
     private tareaService: TareaService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public loginService: LoginService
   ) {
     // console.log(
     //   this.estados.find((est) => est.value === this.data.tarea.estado)
     // );
   }
+
+  isAdmin!: boolean;
   ngOnInit(): void {
-    console.log(this.data);
+    this.loginService._usuarioEncontrado.subscribe((data) => {
+      if (data?.rol === 'administrador') {
+        this.isAdmin = true;
+      }
+    });
   }
 
   estados: Estado[] = [
@@ -47,8 +55,6 @@ export class TareaDialogComponent implements OnInit {
   }
 
   formEdit!: FormGroup;
-
-  
 
   editar() {
     let fechaYHora: Date = new Date();

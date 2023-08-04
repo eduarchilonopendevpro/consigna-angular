@@ -15,7 +15,13 @@
     <p>{{ data.tarea.estado ? "Completado" : "Pendiente" }}</p>
   </div>
   <div mat-dialog-actions>
-    <button mat-raised-button (click)="changeToFormEdit()">Editar</button>
+    <button
+      *ngIf="isAdmin"
+      mat-raised-button
+      (click)="changeToFormEdit()"
+    >
+      Editar
+    </button>
     <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
   </div>
 </div>

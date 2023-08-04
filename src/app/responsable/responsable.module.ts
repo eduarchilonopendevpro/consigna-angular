@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ResponsableService } from './responsable.service';
 import { SectorNamePipe } from '../pipes/sector-name/sector-name.pipe';
 import { ListaResponsablesComponent } from './lista-responsables/lista-responsables.component';
-import { AccionResponsableComponent } from './accion-responsable/accion-responsable.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { AccionResponsableComponent } from './accion-responsable/accion-responsa
     CrearResponsableComponent,
     SectorNamePipe,
     ListaResponsablesComponent,
-    AccionResponsableComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +36,7 @@ import { AccionResponsableComponent } from './accion-responsable/accion-responsa
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
+    AppRoutingModule,
   ],
   providers: [ResponsableService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

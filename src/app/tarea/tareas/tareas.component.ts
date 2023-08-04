@@ -3,6 +3,7 @@ import { TareaService } from '../tarea.service';
 import { Tarea } from 'src/model/tarea.model';
 import { MatDialog } from '@angular/material/dialog';
 import { TareaDialogComponent } from './tarea-dialog/tarea-dialog.component';
+import { LoginService } from 'src/app/login/login.service';
 
 @Component({
   selector: 'app-tareas',
@@ -11,11 +12,21 @@ import { TareaDialogComponent } from './tarea-dialog/tarea-dialog.component';
 })
 export class TareasComponent implements OnInit {
   tareas: Tarea[] = [];
+  isAdmin!: boolean;
 
-  constructor(private tareaService: TareaService, public dialog: MatDialog) {}
+  constructor(
+    public tareaService: TareaService,
+    public dialog: MatDialog,
+    public loginService: LoginService
+  ) {}
 
   ngOnInit(): void {
     this.tareas = this.tareaService.tareas;
+    this.loginService._usuarioEncontrado.subscribe((data) => {
+      if (data?.rol === 'administrador') {
+        this.isAdmin = true;
+      }
+    });
   }
 
   openDialog(tarea: Tarea) {

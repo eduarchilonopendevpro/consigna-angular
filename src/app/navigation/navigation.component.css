@@ -32,3 +32,17 @@
 .nav-link-active {
   background-color: rgb(183, 216, 218);
 }
+
+.titulo-dashboard {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.link-not-visible {
+  display: none;
+}
+
+.link-visible {
+  display: block;
+}

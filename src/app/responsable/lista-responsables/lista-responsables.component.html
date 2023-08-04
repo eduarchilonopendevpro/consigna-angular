@@ -7,7 +7,7 @@
         <button
           mat-mini-fab
           color="primary"
-          (click)="editarResponsable(element)"
+          [routerLink]="['/editar-responsable/' + element.id]"
         >
           <mat-icon>edit</mat-icon>
         </button>

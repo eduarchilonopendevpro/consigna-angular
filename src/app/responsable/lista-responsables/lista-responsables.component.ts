@@ -12,6 +12,7 @@ import {
 import { Responsable } from 'src/model/responsable.model';
 import { ResponsableService } from '../responsable.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { LoginService } from 'src/app/login/login.service';
 
 @Component({
   selector: 'app-lista-responsables',
@@ -19,31 +20,43 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./lista-responsables.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListaResponsablesComponent implements OnInit {
+export class ListaResponsablesComponent implements OnInit, OnChanges {
   @Input() tituloDePagina!: string;
 
   @Input() responsables!: Responsable[];
 
-  @Output() eliminar: EventEmitter<any> = new EventEmitter<Responsable>(); //tipo de parametro
-  @Output() editar: EventEmitter<any> = new EventEmitter<Responsable>();
+  @Output() eliminar = new EventEmitter<Responsable>(); //tipo de parametro
+  @Output() editar = new EventEmitter<Responsable>();
 
   // responsables!: Responsable[];
   dataSource: any = [];
-  displayedColumns: string[] = ['nombre', 'apellido', 'sector', 'accion'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'sector'];
+  isAdmin!: boolean;
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(public loginService: LoginService) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      this.dataSource.data = this.responsables;
+    }
+  }
 
   ngOnInit(): void {
+    this.displayedColumns.push('accion');
     this.dataSource = new MatTableDataSource<Responsable>(this.responsables);
+    this.loginService._usuarioEncontrado.subscribe((data) => {
+      if (data?.rol === 'administrador') {
+        this.isAdmin = true;
+        // this.displayedColumns.push('accion');
+      }
+    });
   }
 
-  editarResponsable(res: Responsable) {
-    this.editar.emit(res);
-  }
+  // editarResponsable(res: Responsable): void {
+  //   this.editar.emit(res);
+  // }
 
-  eliminarResponsable(res: Responsable) {
+  eliminarResponsable(res: Responsable): void {
     this.eliminar.emit(res);
-    this.cd.detectChanges();
-    console.log(this.responsables);
   }
 }

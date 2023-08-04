@@ -11,6 +11,15 @@
       <mat-toolbar> Menu </mat-toolbar>
     </h4>
     <mat-divider></mat-divider>
+    <mat-nav-list>
+      <a
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="nav-link-active"
+        mat-list-item
+        routerLink=""
+        >Home</a
+      >
+    </mat-nav-list>
     <mat-expansion-panel
       *ngFor="let item of menu"
       (opened)="(true)"
@@ -42,7 +51,12 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <h3>{{ title }}</h3>
+      <div class="titulo-dashboard">
+        <h3>{{ title }}</h3>
+        <div>
+          <button mat-flat-button color="warn" *ngIf="usuario">LogOut</button>
+        </div>
+      </div>
     </mat-toolbar>
     <app-dashboard> </app-dashboard>
     <!-- Add Content Here -->

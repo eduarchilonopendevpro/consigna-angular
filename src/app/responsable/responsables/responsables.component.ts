@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   Input,
@@ -17,6 +18,7 @@ import { DataSource } from '@angular/cdk/table';
   selector: 'app-responsables',
   templateUrl: './responsables.component.html',
   styleUrls: ['./responsables.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResponsablesComponent implements OnInit {
   titulo: string = 'LISTA DE RESPONSABLES';

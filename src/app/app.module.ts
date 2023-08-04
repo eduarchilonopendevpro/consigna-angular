@@ -18,6 +18,9 @@ import { ResponsableModule } from './responsable/responsable.module';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ListaResponsablesComponent } from './responsable/lista-responsables/lista-responsables.component';
 import { ResponsablesComponent } from './responsable/responsables/responsables.component';
+import { LoginComponent } from './login/login.component';
+import { LoginModule } from './login/login.module';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, DashboardComponent],
@@ -32,11 +35,12 @@ import { ResponsablesComponent } from './responsable/responsables/responsables.c
     MatIconModule,
     MatListModule,
     TareaModule,
-    CrearTareaModule,
+
     ResponsableModule,
     MatExpansionModule,
+    LoginModule,
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

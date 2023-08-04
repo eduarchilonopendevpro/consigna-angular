@@ -14,11 +14,28 @@ export class ResponsableService {
     return this.responsables;
   }
 
+  findResponsable(responsableId: string): Responsable | any {
+    return this.listaResponsables.find(
+      (responsable) => responsable.id === responsableId
+    );
+  }
+
   crearResponsable(responsable: Responsable): void {
     this.responsables.push(responsable);
   }
 
   eliminar(res: Responsable): void {
     this.responsables = this.listaResponsables.filter((r) => r.id !== res.id);
+  }
+
+  modificarResponsable(responsable: Responsable) {
+    this.responsables.forEach((res) => {
+      if (res.id === responsable.id) {
+        res.id = responsable.id;
+        res.nombre = responsable.nombre;
+        res.apellido = responsable.apellido;
+        res.sector = responsable.sector;
+      }
+    });
   }
 }

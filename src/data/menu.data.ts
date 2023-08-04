@@ -11,7 +11,7 @@ export const menuList: Menu[] = [
   {
     nombre: 'Tarea',
     elementos: [
-      { nombre: 'Lista', url: '' },
+      { nombre: 'Lista', url: 'tareas' },
       { nombre: 'Crear', url: 'crear-tarea' },
     ],
   },

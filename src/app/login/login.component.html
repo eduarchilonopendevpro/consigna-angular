@@ -1,0 +1,37 @@
+<h3 class="page-title">HOME</h3>
+<form
+  *ngIf="!usuario"
+  class="form"
+  autocomplete="off"
+  [formGroup]="formLogin"
+  (ngSubmit)="loginUsuario()"
+>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input type="text" matInput formControlName="email" />
+    <mat-error *ngIf="formLogin.get('email')?.touched">
+      El nombre es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" />
+    <mat-error *ngIf="formLogin.get('password')?.touched">
+      El password es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <br />
+  <br />
+
+  <button mat-flat-button color="primary" type="submit">Ingresar</button>
+</form>
+
+<div *ngIf="usuario">
+  <p>Hola! {{ usuario.nombre }}</p>
+  <p>Rol: {{ usuario.rol }}</p>
+</div>
