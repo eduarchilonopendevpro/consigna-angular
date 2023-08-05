@@ -8,6 +8,5 @@ import { LoginService } from './login/login.service';
 })
 export class AppComponent {
   title = 'consigna-angular';
-
   constructor(private loginService: LoginService) {}
 }

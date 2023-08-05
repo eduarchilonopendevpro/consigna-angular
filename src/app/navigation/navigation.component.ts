@@ -13,6 +13,11 @@ import { menuItems, menuList } from 'src/data/menu.data';
 import { LoginService } from '../login/login.service';
 import { Usuario } from 'src/model/usuario.model';
 import { LoginGuard } from '../login/login.guard';
+import {
+  ActivatedRouteSnapshot,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -22,14 +27,19 @@ import { LoginGuard } from '../login/login.guard';
 export class NavigationComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
 
-  menu: Menu[] = menuList;
+  menu: MenuItem[] = menuItems;
   usuario!: Usuario;
 
-  constructor(private loginService: LoginService, public lguard: LoginGuard) {}
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    public lguard: LoginGuard
+  ) {}
 
   ngOnInit(): void {
     this.loginService._usuarioEncontrado.subscribe((data) => {
       this.usuario = data;
+      console.log(this.usuario);
     });
   }
 
@@ -41,4 +51,8 @@ export class NavigationComponent implements OnInit {
     );
 
   title: string = 'Gestión de tareas';
+
+  logOut() {
+    this.loginService.logOut();
+  }
 }

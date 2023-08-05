@@ -21,6 +21,7 @@ import { ResponsablesComponent } from './responsable/responsables/responsables.c
 import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 import { LoginService } from './login/login.service';
+import { AppGuard } from './app.guard';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, DashboardComponent],
@@ -35,12 +36,11 @@ import { LoginService } from './login/login.service';
     MatIconModule,
     MatListModule,
     TareaModule,
-
     ResponsableModule,
     MatExpansionModule,
     LoginModule,
   ],
-  providers: [LoginService],
+  providers: [LoginService, AppGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

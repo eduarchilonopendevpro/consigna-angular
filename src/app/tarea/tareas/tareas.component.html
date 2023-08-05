@@ -1,4 +1,14 @@
-<h3 class="page-title">LISTA DE TAREAS</h3>
+<div class="page-title-container">
+  <h3 class="page-title">LISTA DE TAREAS</h3>
+  <button
+    *ngIf="isAdmin"
+    mat-raised-button
+    color="primary"
+    routerLink="/crear-tarea"
+  >
+    Crear tarea
+  </button>
+</div>
 <div class="tarea-container">
   <mat-card
     class="tarea-card"

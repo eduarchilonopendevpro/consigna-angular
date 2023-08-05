@@ -11,7 +11,7 @@ import { Usuario } from 'src/model/usuario.model';
 export class LoginService {
   usuarios!: Usuario[];
   _usuarioEncontrado = new BehaviorSubject<any>(null);
-  user$ = this._usuarioEncontrado.asObservable();
+  // user$ = this._usuarioEncontrado.asObservable();
   // usuarioEncontrado$!: Observable<Usuario>;
   usuario!: Usuario | any;
 
@@ -24,11 +24,9 @@ export class LoginService {
   constructor(private router: Router) {}
 
   handleIsAdmin(usuario: Usuario): void {
-    if (usuario.rol === 'administrador') {
-      this.isAdmin = true;
-    } else {
-      this.isAdmin = false;
-    }
+    usuario.rol === 'administrador'
+      ? (this.isAdmin = true)
+      : (this.isAdmin = false);
   }
 
   login(email: String, password: String): void {
@@ -37,5 +35,11 @@ export class LoginService {
     );
     this.handleIsAdmin(this.usuario?.rol);
     this._usuarioEncontrado.next(this.usuario);
+  }
+
+  logOut() {
+    this.usuario = null;
+    this._usuarioEncontrado.next(this.usuario);
+    this.router.navigate(['']);
   }
 }

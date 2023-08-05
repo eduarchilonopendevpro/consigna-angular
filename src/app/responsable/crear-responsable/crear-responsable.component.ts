@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -17,7 +23,7 @@ import { Responsable } from 'src/model/responsable.model';
   templateUrl: './crear-responsable.component.html',
   styleUrls: ['./crear-responsable.component.sass'],
 })
-export class CrearResponsableComponent implements OnInit {
+export class CrearResponsableComponent implements OnInit, OnChanges {
   formResponsable: FormGroup = new FormGroup({
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
@@ -34,8 +40,13 @@ export class CrearResponsableComponent implements OnInit {
     private responsableService: ResponsableService,
     private router: Router,
     private fb: FormBuilder,
-    private activateRoute: ActivatedRoute //permite acceder a los datos de la ruta
+    private activateRoute: ActivatedRoute, //permite acceder a los datos de la ruta
+    private cdr: ChangeDetectorRef
   ) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.cdr.detectChanges();
+  }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe((param) => {

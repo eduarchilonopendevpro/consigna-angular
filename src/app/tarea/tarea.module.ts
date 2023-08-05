@@ -20,11 +20,13 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMomentDatetimeModule } from '@mat-datetimepicker/moment';
 import { MatDatetimepickerModule } from '@mat-datetimepicker/core';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [TareasComponent, TareaDialogComponent, CutStringPipe],
   imports: [
     CommonModule,
+    AppRoutingModule,
     MatListModule,
     MatGridListModule,
     MatCardModule,

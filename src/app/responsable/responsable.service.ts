@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { responsables } from 'src/data/responsable.data';
 import { Responsable } from 'src/model/responsable.model';
 
@@ -12,6 +13,10 @@ export class ResponsableService {
 
   get listaResponsables(): Responsable[] {
     return this.responsables;
+  }
+
+  get cantidadResponsables(): Observable<number> {
+    return of(this.listaResponsables.length);
   }
 
   findResponsable(responsableId: string): Responsable | any {

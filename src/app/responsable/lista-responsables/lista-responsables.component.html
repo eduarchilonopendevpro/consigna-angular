@@ -1,4 +1,14 @@
-<h3 class="page-title">{{ tituloDePagina }}</h3>
+<div class="page-title-container">
+  <h3 class="page-title">{{ tituloDePagina }}</h3>
+  <button
+    *ngIf="isAdmin"
+    mat-raised-button
+    color="primary"
+    routerLink="/crear-responsable"
+  >
+    Crear responsable
+  </button>
+</div>
 <div class="container">
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="accion">

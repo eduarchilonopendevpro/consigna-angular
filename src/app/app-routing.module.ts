@@ -6,6 +6,7 @@ import { ResponsablesComponent } from './responsable/responsables/responsables.c
 import { CrearResponsableComponent } from './responsable/crear-responsable/crear-responsable.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login/login.guard';
+import { AppGuard } from './app.guard';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
   {
     path: 'tareas',
     component: TareasComponent,
+    canActivate: [AppGuard],
   },
   {
     path: 'crear-tarea',
@@ -24,16 +26,17 @@ const routes: Routes = [
   {
     path: 'responsables',
     component: ResponsablesComponent,
+    canActivate: [AppGuard],
   },
   {
     path: 'crear-responsable',
     component: CrearResponsableComponent,
-    // canActivate: [LoginGuard],
+    canActivate: [LoginGuard],
   },
   {
     path: 'editar-responsable/:id',
     component: CrearResponsableComponent,
-    // canActivate: [LoginGuard],
+    canActivate: [LoginGuard],
   },
   {
     path: '**',
